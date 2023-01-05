@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 document.title = "Textify"
 export default function Navbar(props) {
     return (

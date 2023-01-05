@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
@@ -18,7 +18,7 @@ function App() {
   }
   const [m, changemode] = useState('light')
   const toggle = () => {
-    if (m == 'light') {
+    if (m === 'light') {
       changemode('dark');
       document.body.style.backgroundColor = 'black';
       changealert("Dark Mode is enabled", "danger")

@@ -10,7 +10,7 @@ export default function Textform(props) {
         console.log("Change")
         setText(event.target.value)
     }
-    const handleonclicklower = (event) => {
+    const handleonclicklower = () => {
         let n = text.toLowerCase()
         setText(n)
         props.changealert("Converted to lowercase", "danger")
@@ -29,19 +29,30 @@ export default function Textform(props) {
         backgroundColor: 'white',
         color: 'black'
     }
+    const handleonclickclear = () => {
+        let n = text.split(" ")
+        let a = ''
+        for (let b of n) {
+            if (b !== '') {
+                a += b + ' '
+            }
+        }
+        setText(a);
+    }
     return (
-        <div style={props.mode == 'dark' ? textdarkstyle : textlightstyle}>
+        <div style={props.mode === 'dark' ? textdarkstyle : textlightstyle}>
             <div className="container mb-3">
                 <h1>{props.heading}</h1>
-                <textarea className="form-control" value={text} style={props.mode == 'dark' ? areadarkstyle : arealightstyle} id="exampleFormControlTextarea1" onChange={handleonchange} rows="8"></textarea>
-                <button className={`btn btn-${props.mode == 'dark' ? 'light' : 'dark'} mt-3`} onClick={handleonclick}>Convert to upper</button>
-                <button className={`btn btn-${props.mode == 'dark' ? 'light' : 'dark'} mt-3 mx-3`} onClick={handleonclicklower}>Convert to lower</button>
+                <textarea className="form-control" value={text} style={props.mode === 'dark' ? areadarkstyle : arealightstyle} id="exampleFormControlTextarea1" onChange={handleonchange} rows="8"></textarea>
+                <button className={`btn btn-${props.mode === 'dark' ? 'light' : 'dark'} mt-3`} onClick={handleonclick}>Convert to upper</button>
+                <button className={`btn btn-${props.mode === 'dark' ? 'light' : 'dark'} mt-3 mx-3`} onClick={handleonclicklower}>Convert to lower</button>
+                <button className={`btn btn-${props.mode === 'dark' ? 'light' : 'dark'} mt-3 mx-1`} onClick={handleonclickclear}>Clear spaces</button>
             </div>
             <div className='container'>
                 <h1>Your text summary</h1>
-                <p>Words are {text.split(" ").length} and Characters are {text.length}</p>
+                <p>Words are {text.split(" ")[0] === '' ? 0 : text.split(" ").length} and Characters are {text.length}</p>
                 <h2>Preview</h2>
-                <p>{text.length == 0 ? "Enter something to preview" : text}</p>
+                <p>{text.length === 0 ? "Enter something to preview" : text}</p>
             </div>
 
         </div >

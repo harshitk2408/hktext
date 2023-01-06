@@ -41,7 +41,7 @@ function App() {
         <Router>
           <Routes>
             <Route exact path='/' element={<Textform heading="Enter" mode={m} changealert={changealert} />} />
-            <Route exact path='/about' element={<Aboutus />} />
+            <Route exact path='/about' element={<Aboutus mode={m} />} />
           </Routes></Router>
 
       </div>

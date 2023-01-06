@@ -50,7 +50,7 @@ export default function Textform(props) {
             </div>
             <div className='container'>
                 <h1>Your text summary</h1>
-                <p>Words are {text.split(" ").filter((elem) => { return elem.length !== 0 }).length} and Characters are {text.length}</p>
+                <p>Words are {text.split(/\s+/).filter((elem) => { return elem.length !== 0 }).length} and Characters are {text.length}</p>
                 <h2>Preview</h2>
                 <p>{text.length === 0 ? "Enter something to preview" : text}</p>
             </div>
